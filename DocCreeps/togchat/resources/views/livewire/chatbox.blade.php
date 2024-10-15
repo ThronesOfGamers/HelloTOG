@@ -18,7 +18,7 @@ new class extends Component {
         $this->reset('message');
     }
 
-    #[On('echo:messages,MessageSent')]
+    #[On('echo-private:messages,MessageSent')]
     #[NoReturn] public function onMessageSent($event): void
     {
 //        dd($event);
