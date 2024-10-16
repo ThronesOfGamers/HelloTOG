@@ -1,7 +1,6 @@
 use rand::seq::SliceRandom;
 use std::collections::HashSet;
 use std::io::{self, Write};
-use std::process::Command;
 
 const MAX_TRIES: u32 = 6;
 const WORDS: &[&str] = &["rust", "programming", "computer", "algorithm", "developer"];
@@ -17,7 +16,6 @@ fn main() {
     println!("Le mot a {} lettres.", word.len());
 
     while tries_left > 0 {
-        Command::new("clear").status().unwrap();
         print_word_progress(&word, &guessed_letters);
         print_hangman(tries_left);
         println!("Il vous reste {} essais.", tries_left);
@@ -43,7 +41,6 @@ fn main() {
         }
 
         guessed_letters.insert(guess_char);
-
         if !word.contains(guess_char) {
             tries_left -= 1;
             println!("Incorrect !");
